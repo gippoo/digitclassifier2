@@ -31,7 +31,7 @@
         	idata.push(imgData.pixels[i]/255.0);
         }
         
-        var inputs = tf.tensor4d(idata,[-1,28,28,1]);
+        var inputs = tf.tensor4d(idata,[1,28,28,1]);
         
         var prediction = mnist.predict(inputs);
         prediction.print();
