@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
+</head>
+
+<script>
+	function setup() {
+  		var canv = createCanvas(150, 150);
+  		background(0,0,0,0);
+        canv.parent("canholder");
+	}
+    
+    function draw() {
+    	strokeWeight(14);
+        if (mouseIsPressed) {
+        	line(pmouseX, pmouseY, mouseX, mouseY);
+        }
+    }
+    
+    async function getdata() {
+    	const mnist = await tf.loadModel('https://gippoo.github.io/digitclassifier/mnistcnn.json');
+    	var idata = [];
+    	var imgData = get()
+        imgData.resize(28,28);
+        imgData.loadPixels();
+        
+        var i;
+        for (i = 3; i < imgData.pixels.length; i+=4) {
+        	idata.push(imgData.pixels[i]/255.0);
+        }
+        
+        var inputs = tf.tensor4d(idata,[-1,28,28,1]);
+        
+        var prediction = mnist.predict(inputs);
+        prediction.print();
+	    
+	prediction.squeeze().argMax().print();
+	    
+	var result = prediction.squeeze().argMax().dataSync();
+	    
+	document.getElementById("result").innerHTML = "Predicted number: " + result;
+	
+	}
+    
+    function erase() {
+    	clear()
+    }
+        
+</script>
+
+<body>
+
+<h1>Try Drawing a Number</h1>
+<div id="canholder" style="border:1px solid #000000;">
+</div>
+<p>Click 'Predict' to have the computer guess what number you drew. (Only single digit numbers pls.)</p>
+
+<style>
+#canholder {
+    height: 150px;
+    width: 150px;
+}
+</style>
+
+<button id="clr" onclick="erase()">Clear</button>
+<button id="dataget" onclick="getdata()">Predict</button>
+<p id="result"></p>
+<p><b>NOTE: There are issues with drawing if you are on a mobile device.</b>
+<br><i>Trained using a convolutional network. It helps to draw clearly and to center the number though the convolutional
+network should be able to deal with off-center digits.</i></p>
+</body>
+</html>
