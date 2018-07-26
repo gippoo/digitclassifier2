@@ -31,8 +31,6 @@
         	idata.push(imgData.pixels[i]/255.0);
         }
 	
-	tf.tidy(() => {
-	
         var inputs = tf.tensor4d(idata,[1,28,28,1]);
         
         var prediction = mnist.predict(inputs);
@@ -44,7 +42,7 @@
 		
 	document.getElementById("result").innerHTML = "Predicted number: " + result;
 	    
-	});
+	tf.disposeVariables();
 	    
 	console.log(tf.memory().numTensors);
 		
