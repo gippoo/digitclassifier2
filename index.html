@@ -22,7 +22,7 @@
     async function getdata() {
     	const mnist = await tf.loadModel('https://gippoo.github.io/digitclassifier2/mnistcnn.json');
     	var idata = [];
-    	var imgData = get()
+    	var imgData = get();
         imgData.resize(28,28);
         imgData.loadPixels();
         
@@ -42,6 +42,8 @@
 	    
 	document.getElementById("result").innerHTML = "Predicted number: " + result;
 	
+	console.log(tf.memory().numTensors);
+	    
 	}
     
     function erase() {
