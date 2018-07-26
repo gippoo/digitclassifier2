@@ -36,8 +36,6 @@
         var prediction = mnist.predict(inputs);
         prediction.print();
 	    
-	prediction.squeeze().argMax().print();
-	    
 	var result = prediction.squeeze().argMax().dataSync();
 		
 	document.getElementById("result").innerHTML = "Predicted number: " + result;
