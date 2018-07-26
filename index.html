@@ -32,9 +32,7 @@
         }
 	
 	console.log(tf.memory().numTensors);
-	    
-        tf.tidy(() => {
-	    
+	
         var inputs = tf.tensor4d(idata,[1,28,28,1]);
         
         var prediction = mnist.predict(inputs);
@@ -45,9 +43,6 @@
 	var result = prediction.squeeze().argMax().dataSync();
 		
 	document.getElementById("result").innerHTML = "Predicted number: " + result;
-		
-	})
-	
 	    
 	}
     
@@ -72,7 +67,7 @@
 </style>
 
 <button id="clr" onclick="erase()">Clear</button>
-<button id="dataget" onclick="getdata()">Predict</button>
+<button id="dataget" onclick="tf.tidy(getdata())">Predict</button>
 <p id="result"></p>
 <p><b>NOTE: There may be issues with drawing if you are on a mobile device.</b>
 <br><i>Trained using a convolutional network. It helps to draw clearly and to center the number though the convolutional
