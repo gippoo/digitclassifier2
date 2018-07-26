@@ -30,6 +30,8 @@
         for (i = 3; i < imgData.pixels.length; i+=4) {
         	idata.push(imgData.pixels[i]/255.0);
         }
+	
+	console.log(tf.memory().numTensors);
 	    
         tf.tidy(() => {
 	    
@@ -46,7 +48,6 @@
 		
 	})
 	
-	console.log(tf.memory().numTensors);
 	    
 	}
     
