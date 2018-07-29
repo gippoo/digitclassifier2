@@ -10,18 +10,18 @@
 	mnist = await tf.loadModel('https://gippoo.github.io/digitclassifier2/mnistcnn.json');
     }
 	
-init();
+    init();
 	
-	function setup() {
-  		var canv = createCanvas(150, 150);
-  		background(0,0,0,0);
+    function setup() {
+  	var canv = createCanvas(150, 150);
+  	background(0,0,0,0);
         canv.parent("canholder");
-	}
+    }
     
     function draw() {
     	strokeWeight(14);
         if (mouseIsPressed) {
-        	line(pmouseX, pmouseY, mouseX, mouseY);
+            line(pmouseX, pmouseY, mouseX, mouseY);
         }
     }
     
@@ -50,7 +50,7 @@ init();
 	    
 	console.log(tf.memory().numTensors);
 		
-	}
+    }
     
     function erase() {
     	clear()
