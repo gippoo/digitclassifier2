@@ -3,6 +3,12 @@
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
+<style>
+#canholder {
+    height: 150px;
+    width: 150px;
+}
+</style>
 </head>
 
 <script>
@@ -61,13 +67,6 @@
 <div id="canholder" style="border:1px solid #000000;">
 </div>
 <p>Click 'Predict' to have the computer guess what number you drew. (Only single digit numbers pls.)</p>
-
-<style>
-#canholder {
-    height: 150px;
-    width: 150px;
-}
-</style>
 
 <button id="clr" onclick="erase()">Clear</button>
 <button id="dataget" onclick="getdata()">Predict</button>
