@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gary Ip - Digit Classifier</title>
-  <link rel="shortcut icon" href="https://github.com/gippoo/gippoo.github.io/raw/master/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="https://github.com/gippoo/gippoo.github.io/raw/master/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gary Ip - Digit Classifier</title>
+<link rel="shortcut icon" href="https://github.com/gippoo/gippoo.github.io/raw/master/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://github.com/gippoo/gippoo.github.io/raw/master/favicon.ico" type="image/x-icon">
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
 <style>
-#canholder {
-    height: 150px;
-    width: 150px;
-}
-	
-body {
-  background-color: #303030;
-  color: white;
-  font-family: "Trebuchet MS";
-}
+  #canholder {
+      height: 150px;
+      width: 150px;
+      border: 3px solid #96beff;
+  }
+
+  body {
+    background-color: #303030;
+    color: white;
+    font-family: "Trebuchet MS";
+  }
+
+    a:link {
+      color: white;
+    }
+    a:visited {
+      color: white;
+    }  
+    a:hover {
+      color: #8bb6f9;
+    }
+
 </style>
 </head>
 
@@ -74,9 +86,9 @@ body {
 </script>
 
 <h1>Try Drawing a Number</h1>
-<div id="canholder" style="border:1px solid #000000;">
+<div id="canholder">
 </div>
-<p>Click 'Predict' to have the computer guess what number you drew. (Only single digit numbers pls.)</p>
+<p>Click 'Predict' to have the computer guess what number you drew. (Only single digit numbers.)</p>
 
 <button id="clr" onclick="erase()">Clear</button>
 <button id="dataget" onclick="getdata()">Predict</button>
@@ -84,6 +96,6 @@ body {
 <p><b>NOTE: There may be issues with drawing if you are on a mobile device.</b>
 <br><i>Trained using a convolutional network. It helps to draw clearly and to center the number though the convolutional
 network should be able to deal with off-center digits.</i></p>
-<p>I used nearly the same methodology outlined <a href="https://www.kaggle.com/yassineghouzam/introduction-to-cnn-keras-0-997-top-6">here</a></p>
+<p>I used nearly the same methodology outlined <a href="https://www.kaggle.com/yassineghouzam/introduction-to-cnn-keras-0-997-top-6">here</a>.</p>
 </body>
 </html>
