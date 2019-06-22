@@ -22,6 +22,7 @@ body {
 </style>
 </head>
 
+<body>
 <script>
     async function init() {
 	mnist = await tf.loadModel('https://gippoo.github.io/digitclassifier2/mnistcnn.json');
@@ -71,8 +72,6 @@ body {
     }
         
 </script>
-
-<body>
 
 <h1>Try Drawing a Number</h1>
 <div id="canholder" style="border:1px solid #000000;">
